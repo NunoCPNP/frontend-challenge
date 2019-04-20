@@ -8,12 +8,8 @@ class NewData extends Component {
     text: ""
   };
 
-  onVoiceChange = e => {
-    this.setState({ voice: e.target.value });
-  };
-
-  onTextChange = e => {
-    this.setState({ text: e.target.value });
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -30,16 +26,18 @@ class NewData extends Component {
             <input
               type="text"
               className="voice"
+              name="voice"
               placeholder="Add new voice..."
               value={this.state.voice}
-              onChange={this.onVoiceChange}
+              onChange={this.onChange}
             />
             <input
               type="text"
               className="text"
+              name="text"
               placeholder="Add new text..."
               value={this.state.text}
-              onChange={this.onTextChange}
+              onChange={this.onChange}
             />
           </div>
           <div className="delete">
