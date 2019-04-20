@@ -3,6 +3,19 @@ import React, { Component } from "react";
 import "./DataItems.css";
 
 class NewData extends Component {
+  state = {
+    voice: "",
+    text: ""
+  };
+
+  onVoiceChange = e => {
+    this.setState({ voice: e.target.value });
+  };
+
+  onTextChange = e => {
+    this.setState({ text: e.target.value });
+  };
+
   render() {
     return (
       <ul>
@@ -18,8 +31,16 @@ class NewData extends Component {
               type="text"
               className="voice"
               placeholder="Add new voice..."
+              value={this.state.voice}
+              onChange={this.onVoiceChange}
             />
-            <input type="text" className="text" placeholder="Add new text..." />
+            <input
+              type="text"
+              className="text"
+              placeholder="Add new text..."
+              value={this.state.text}
+              onChange={this.onTextChange}
+            />
           </div>
           <div className="delete">
             <img src="./images/delete.svg" alt="delete" />

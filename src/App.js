@@ -16,6 +16,7 @@ class App extends Component {
     addItem: false
   };
 
+  // Get request from API
   getData = () => {
     axios.get(API_URL).then(res => {
       console.log("AXIOS Response: ", res);
@@ -27,6 +28,7 @@ class App extends Component {
     });
   };
 
+  // Delete item from State
   delItem = id => {
     this.setState({
       items: [...this.state.items.filter(item => item.id !== id)]
