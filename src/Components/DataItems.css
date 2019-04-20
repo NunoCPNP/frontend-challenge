@@ -1,0 +1,86 @@
+.container {
+  background-color: white;
+  max-width: 900px;
+  display: grid;
+  margin: auto;
+  grid-gap: 20px;
+  grid-template-columns: auto auto 1fr 20px;
+  padding: 25px 25px;
+  border-bottom: 3px solid #f6f7f8;
+}
+
+.container:hover .delete {
+  opacity: 1;
+}
+
+.container li:first-child {
+  margin-top: 40px;
+}
+
+.container input[type="checkbox"] {
+  appearance: none;
+}
+
+.container input[type="text"] {
+  width: 100%;
+  border: none;
+}
+
+.container textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+}
+
+.regular-checkbox {
+  background-color: #fafafa;
+  border: 2px solid #859eff;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.regular-checkbox:active,
+.regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.regular-checkbox:checked {
+  background-color: #859eff;
+  border: 2px solid #859eff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #fafafa;
+}
+
+.regular-checkbox:checked:after {
+  content: "\2714";
+  font-size: 11px;
+  position: absolute;
+  bottom: -1px;
+  left: 1px;
+  color: white;
+}
+
+.voice {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #565074;
+  padding-bottom: 5px;
+}
+
+.text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #414c5e;
+}
+
+.delete {
+  margin-right: 5px;
+  margin-top: 5px;
+  opacity: 0;
+}
