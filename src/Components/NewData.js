@@ -8,13 +8,15 @@ class NewData extends Component {
     text: ""
   };
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  onFormSubmit = e => {
+    e.preventDefault();
+
+    this.props.onSubmit(this.state);
   };
 
   render() {
     return (
-      <ul>
+      <form onSubmit={this.onFormSubmit}>
         <li className="container">
           <div>
             <input type="checkbox" className="regular-checkbox" />
@@ -29,7 +31,7 @@ class NewData extends Component {
               name="voice"
               placeholder="Add new voice..."
               value={this.state.voice}
-              onChange={this.onChange}
+              onChange={e => this.setState({ voice: e.target.value })}
             />
             <input
               type="text"
@@ -37,14 +39,15 @@ class NewData extends Component {
               name="text"
               placeholder="Add new text..."
               value={this.state.text}
-              onChange={this.onChange}
+              onChange={e => this.setState({ text: e.target.value })}
             />
           </div>
           <div className="delete">
             <img src="./images/delete.svg" alt="delete" />
           </div>
+          <button type="submit" value="submit" />
         </li>
-      </ul>
+      </form>
     );
   }
 }

@@ -35,6 +35,10 @@ class App extends Component {
     });
   };
 
+  onAddSubmit = e => {
+    console.log(e);
+  };
+
   addItem = () => {
     this.setState({ addItem: true });
   };
@@ -52,7 +56,7 @@ class App extends Component {
         ) : (
           <Spinner />
         )}
-        {this.state.addItem ? <NewData /> : null}
+        {this.state.addItem ? <NewData onSubmit={this.onAddSubmit} /> : null}
         {this.state.isLoaded ? <Add addItem={this.addItem} /> : null}
       </div>
     );
