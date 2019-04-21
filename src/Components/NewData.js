@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 
-import "./DataItems.css";
+import "./NewData.css";
 
 class NewData extends Component {
   state = {
+    id: "",
     voice: "",
     text: ""
   };
+
+  componentDidMount() {
+    let allIds = [];
+    this.props.id.map(item => allIds.push(item.id));
+
+    let newID = allIds.reduce(function(a, b) {
+      return Math.max(a, b) + 1;
+    });
+
+    this.setState({ id: newID });
+  }
 
   onFormSubmit = e => {
     e.preventDefault();
@@ -41,11 +53,13 @@ class NewData extends Component {
               value={this.state.text}
               onChange={e => this.setState({ text: e.target.value })}
             />
+            <button className="button" type="submit" value="submit">
+              Submit
+            </button>
           </div>
           <div className="delete">
             <img src="./images/delete.svg" alt="delete" />
           </div>
-          <button type="submit" value="submit" />
         </li>
       </form>
     );

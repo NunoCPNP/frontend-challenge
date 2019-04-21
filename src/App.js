@@ -35,14 +35,17 @@ class App extends Component {
     });
   };
 
+  // Add item to State
   onAddSubmit = e => {
-    console.log(e);
+    this.setState({ items: [...this.state.items, e], addItem: false });
   };
 
+  // Toggle NewData Component
   addItem = () => {
     this.setState({ addItem: true });
   };
 
+  // Delete before last commit
   componentDidUpdate(e) {
     console.log("Component Update: ", this.state);
   }
@@ -56,7 +59,9 @@ class App extends Component {
         ) : (
           <Spinner />
         )}
-        {this.state.addItem ? <NewData onSubmit={this.onAddSubmit} /> : null}
+        {this.state.addItem ? (
+          <NewData onSubmit={this.onAddSubmit} id={this.state.items} />
+        ) : null}
         {this.state.isLoaded ? <Add addItem={this.addItem} /> : null}
       </div>
     );
