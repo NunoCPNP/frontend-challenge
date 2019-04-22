@@ -19,13 +19,23 @@ class App extends Component {
   // Get request from API
   getData = () => {
     axios.get(API_URL).then(res => {
-      console.log("AXIOS Response: ", res);
+      console.log("AXIOS GET Response: ", res);
       const items = res.data;
       this.setState({
         items: items,
         isLoaded: true
       });
     });
+  };
+
+  pushData = () => {
+    const apiUpdate = this.state.items;
+    console.log("STATE to push: ", apiUpdate);
+    axios
+      .post(API_URL, {
+        apiUpdate
+      })
+      .then(res => console.log("AXIOS PUSH Response: ", res));
   };
 
   // Delete item from State
@@ -47,13 +57,13 @@ class App extends Component {
 
   // Delete before last commit
   componentDidUpdate(e) {
-    console.log("Component Update: ", this.state);
+    console.log("APP Component Update: ", this.state);
   }
 
   render() {
     return (
       <div className="App">
-        <NavBar getData={this.getData} />
+        <NavBar getData={this.getData} pushData={this.pushData} />
         {this.state.isLoaded ? (
           <Data items={this.state.items} delItem={this.delItem} />
         ) : (

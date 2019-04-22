@@ -18,7 +18,11 @@ export default class NavBar extends Component {
             />
           </li>
           <li>
-            <img src="./images/upload.svg" alt="uploadimage" />
+            <img
+              src="./images/upload.svg"
+              alt="uploadimage"
+              onClick={this.props.pushData}
+            />
           </li>
         </ul>
       </nav>
